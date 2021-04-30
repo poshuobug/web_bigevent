@@ -1,7 +1,6 @@
 $(function() {
     // 调用getUserInfo获取用户信息
     getUserInfo()
-
     // 退出功能
     $('#btnLogout').on('click', function() {
         // 提示用户是否退出
@@ -18,9 +17,9 @@ $(function() {
             
           });
     })
-
-    // 获取用户基本信息
-    function getUserInfo() {
+})
+// 获取用户基本信息
+function getUserInfo() {
     var layer = layui.layer
     $.ajax({
         type: 'get',
@@ -49,19 +48,18 @@ $(function() {
     })  
     }
     
-    // 渲染用户的头像
-    function renderAvatar(user) {
-        // 获取用户名称
-        var name = user.nickname || user.username
-        // 设置欢迎的文本
-        $('#welcome').html('欢迎&nbsp;&nbsp;' + name)
-        if(user.user_pic != null) {
-            $('.layui-nav-img').attr('src', user.user_pic).show()
-            $('.text-avatar').hide()
-        } else {
-            $('.layui-nav-img').hide()
-            var fir = name[0].toUpperCase()
-            $('.text-avatar').html(fir).show()
-        }
+// 渲染用户的头像
+function renderAvatar(user) {
+    // 获取用户名称
+    var name = user.nickname || user.username
+    // 设置欢迎的文本
+    $('#welcome').html('欢迎&nbsp;&nbsp;' + name)
+    if(user.user_pic != null) {
+        $('.layui-nav-img').attr('src', user.user_pic).show()
+        $('.text-avatar').hide()
+    } else {
+        $('.layui-nav-img').hide()
+        var fir = name[0].toUpperCase()
+        $('.text-avatar').html(fir).show()
     }
-})
+}
